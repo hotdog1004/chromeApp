@@ -22,9 +22,6 @@ function paintGreetings(username){
     greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
-function test(){
-    console.log('test')
-}
 const savedUsername = localStorage.getItem(USERNAME_KEY);
 // LocalStorage에 username 값의 유무에 따라 form 노출 여부 변경
 if(savedUsername === null) {
@@ -35,6 +32,3 @@ if(savedUsername === null) {
     paintGreetings(savedUsername)
     
 }
-
-//test
-// tgest
