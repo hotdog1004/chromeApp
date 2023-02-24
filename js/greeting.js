@@ -1,6 +1,7 @@
 const loginForm = document.querySelector('#login-form');
 const loginInput = document.querySelector('#login-form input');
 const greeting = document.querySelector('#greeting');
+const todo = document.querySelector('#todo');
 
 // 계속 반복해서 사용하는 값은 상수로 저장해서 사용
 const HIDDEN_CLASSNAME = 'hidden';
@@ -18,16 +19,18 @@ function onLoginSubmit(event){
 }
 
 function paintGreetings(username){
-    greeting.innerText = `Hello ${username}`;
+    greeting.innerText = `Hello ${username} !`;
     greeting.classList.remove(HIDDEN_CLASSNAME);
+    todo.classList.remove(HIDDEN_CLASSNAME);
 }
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
-// LocalStorage에 username 값의 유무에 따라 form 노출 여부 변경
+// LocalStorage에 username 값의 유무에 따라 login-form 노출 여부 변경
 if(savedUsername === null) {
     // show the form
     loginForm.classList.remove(HIDDEN_CLASSNAME);
     loginForm.addEventListener('submit', onLoginSubmit);
+    todo.className = HIDDEN_CLASSNAME;
 }else {
     paintGreetings(savedUsername)
     
