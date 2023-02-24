@@ -11,7 +11,6 @@ function saveToDos(){
 }
 // 삭제
 function deleteTodo(event){
-   
     // target : 클릭된 HTML element
     // parentNode or parentElement 를 찾아서 삭제!
     const li = event.target.parentElement;
@@ -60,3 +59,14 @@ if(savedTodos !== null) {
     toDos = parsedTodos;
     parsedTodos.forEach(paintTodo)
 }
+
+function checkTodo(event){
+    const li = event.target.parentElement;
+    if(li.className === 'checked'){
+        li.classList.remove('checked')
+    }else{
+        li.className = 'checked';
+    }
+}
+
+todoList.addEventListener('click', checkTodo)
